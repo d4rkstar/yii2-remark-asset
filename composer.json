@@ -1,0 +1,28 @@
+{
+  "name": "d4rkstar/yii2-remark-asset",
+  "description": "Backend theme for Yii2 Framework",
+  "type": "yii2-extension",
+  "keywords": ["yii2","extension","remark"],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Bruno Salzano",
+      "email": "d4rkstar@gmail.com"
+    }
+
+  ],
+  "require": {
+    "yiisoft/yii2": "2.*",
+    "yiisoft/yii2-bootstrap": "2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "d4rkstar\\": ""
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0.x-dev"
+    }
+  }
+}
