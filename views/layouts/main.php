@@ -16,10 +16,10 @@ if (Yii::$app->controller->action->id === 'login') {
     );
 } else {
 
+    $asset = new d4rkstar\web\RemarkAsset();
+    $asset::register($this);
 
-    d4rkstar\web\RemarkAsset::register($this);
-
-    $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/d4rkstar/yii2-remark-asset/vendor/remark');
+    $directoryAsset = Yii::$app->assetManager->getPublishedUrl($asset->sourcePath);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

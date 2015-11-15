@@ -7,7 +7,7 @@ use yii\web\AssetBundle;
 class RemarkAsset extends AssetBundle
 {
 
-    public $sourcePath = '@vendor/d4rkstar/yii2-remark-asset/vendor/remark';
+    public $sourcePath = '@webroot/remark';
 
     public $layout = 'global';
 
