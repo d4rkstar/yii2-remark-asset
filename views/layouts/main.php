@@ -56,13 +56,13 @@ if (Yii::$app->controller->action->id === 'login') {
     <![endif]-->
     <?php $this->beginBody() ?>
 
-    <?= $this->render('header.php', ['directoryAsset' => $directoryAsset]) ?>
+    <?= $this->render('parts/header.php', ['directoryAsset' => $directoryAsset]) ?>
 
-    <?= $this->render('left.php', ['directoryAsset' => $directoryAsset]) ?>
+    <?= $this->render('parts/left.php', ['directoryAsset' => $directoryAsset]) ?>
 
-    <?= $this->render('content.php', ['content' => $content, 'directoryAsset' => $directoryAsset]) ?>
+    <?= $this->render('parts/content.php', ['content' => $content, 'directoryAsset' => $directoryAsset]) ?>
 
-    <?= $this->render('footer.php', ['directoryAsset' => $directoryAsset]) ?>
+    <?= $this->render('parts/footer.php', ['directoryAsset' => $directoryAsset]) ?>
 
     <?php $this->endBody() ?>
     <script>
