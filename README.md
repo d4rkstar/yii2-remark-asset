@@ -17,6 +17,18 @@ To install Remark Asset run:
 php composer.phar require d4rkstar/yii2-remark-asset "2.0.x-dev"
 ```
 
+You've to unzip the contents of your remark theme inside the @webroot/remark folder. Check [Aliases](http://www.yiiframework.com/doc-2.0/guide-concept-aliases.html).
+
+You should have a folder structure like this:
+
+* app/
+  * web/
+    * remark/
+      * base/
+      * global/
+      * iconbar/
+      * mmenu/
+      * topbar/
 
 
 Quick Start
@@ -33,6 +45,26 @@ For Yii 2 [Application Template](https://github.com/yiisoft/yii2-app-advanced) o
              'pathMap' => [
                 '@app/views' => '@vendor/d4rkstar/yii2-remark-asset/views'
              ],
+         ],
+    ],
+],
+```
+
+You've to change these in your configuration:
+
+```php
+'components' => [
+    'assetManager' => [
+         'bundles' => [
+              'd4rkstar\web\RemarkAsset' => [
+                'skin' => 'orange',
+              ],
+              'yii\web\JqueryAsset' => [
+                'sourcePath' => null,
+                'js' => [
+                    '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js',
+                ]
+              ],
          ],
     ],
 ],
