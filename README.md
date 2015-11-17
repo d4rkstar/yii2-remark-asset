@@ -42,6 +42,8 @@ Once the extension is installed, you can have a **preview** by reconfiguring the
 
 For Yii 2 [Application Template](https://github.com/yiisoft/yii2-app-advanced) or [Basic Application Template](https://github.com/yiisoft/yii2-app-basic)
 
+Edit your config/web.php and add:
+
 ```php
 'components' => [
     'view' => [
@@ -54,7 +56,7 @@ For Yii 2 [Application Template](https://github.com/yiisoft/yii2-app-advanced) o
 ],
 ```
 
-You've to change these in your configuration:
+Then change these in your configuration:
 
 ```php
 'components' => [
@@ -69,6 +71,45 @@ You've to change these in your configuration:
                     '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js',
                 ]
               ],
+         ],
+    ],
+],
+```
+
+To speedup asset creation you may eventually you may use [symlinking](http://www.yiiframework.com/doc-2.0/guide-structure-assets.html#asset-publishing):
+
+```php
+'components' => [
+    'assetManager' => [
+        'linkAssets' => true, // create symlinks
+        'bundles' => [
+            ...
+         ],
+    ],
+],
+```
+
+You may add custom css / js for specific controller/action using the "addons" attribute.
+
+```php
+'components' => [
+    'assetManager' => [
+        'linkAssets' => true, // create symlinks
+        'bundles' => [
+            'd4rkstar\web\RemarkAsset' => [
+                // 'skin' => 'orange',
+                'addons'=>[
+                    // SiteController, actionLogin
+                    'site/login'=>[
+                        'css'=>[
+                            'base/assets/examples/css/pages/login-v3.css'
+                        ],
+                        'js'=>[
+                            'global/js/components/material.js'
+                        ]
+                    ]
+                ]
+            ],
          ],
     ],
 ],

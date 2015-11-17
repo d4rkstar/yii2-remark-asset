@@ -4,22 +4,10 @@ use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+$asset = new d4rkstar\web\RemarkAsset();
+$asset::register($this);
 
-if (Yii::$app->controller->action->id === 'login') {
-    /**
-     * Do not use this code in your template. Remove it.
-     * Instead, use the code  $this->layout = '//main-login'; in your controller.
-     */
-    echo $this->render(
-        'main-login',
-        ['content' => $content]
-    );
-} else {
-
-    $asset = new d4rkstar\web\RemarkAsset();
-    $asset::register($this);
-
-    $directoryAsset = Yii::$app->assetManager->getPublishedUrl($asset->sourcePath);
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl($asset->sourcePath);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -56,23 +44,24 @@ if (Yii::$app->controller->action->id === 'login') {
     <![endif]-->
     <?php $this->beginBody() ?>
 
-    <?= $this->render('parts/header.php', ['directoryAsset' => $directoryAsset]) ?>
+    <?= $this->render('parts/main-header.php', ['directoryAsset' => $directoryAsset]) ?>
 
-    <?= $this->render('parts/left.php', ['directoryAsset' => $directoryAsset]) ?>
+    <?= $this->render('parts/main-left.php', ['directoryAsset' => $directoryAsset]) ?>
 
-    <?= $this->render('parts/content.php', ['content' => $content, 'directoryAsset' => $directoryAsset]) ?>
+    <?= $this->render('parts/main-content.php', ['content' => $content, 'directoryAsset' => $directoryAsset]) ?>
 
-    <?= $this->render('parts/footer.php', ['directoryAsset' => $directoryAsset]) ?>
+    <?= $this->render('parts/main-footer.php', ['directoryAsset' => $directoryAsset]) ?>
 
     <?php $this->endBody() ?>
     <script>
-        var Site = window.Site;
-
-        $(document).ready(function($) {
-            Site.run();
-        });
+        (function(document, window, $) {
+            'use strict';
+            var Site = window.Site;
+            $(document).ready(function() {
+                Site.run();
+            });
+        })(document, window, jQuery);
     </script>
     </body>
 </html>
-    <?php $this->endPage() ?>
-<?php } ?>
+<?php $this->endPage() ?>
